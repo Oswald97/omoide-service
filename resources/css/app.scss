@@ -1,0 +1,220 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~intl-tel-input/build/css/intlTelInput.css";
+@import "~country-select-js/build/css/countrySelect.min.css";
+@import "~file-upload-with-preview/dist/file-upload-with-preview.min.css";
+
+.iti__flag {background-image: url("~intl-tel-input/build/img/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .iti__flag {background-image: url("~intl-tel-input/build/img/flags@2x.png");}
+}
+
+.country-select, .iti {
+    width: 100%;
+}
+
+.custom-file-container {
+
+    & > label {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.custom-file-container__image-clear {
+    font-size: .875em;
+    color: #dc3545;
+    cursor: pointer;
+}
+
+.custom-file-container__image-multi-preview {
+    height: 200px;
+}
+
+.custom-file-container__image-preview {
+    display: none;
+    height: 350px;
+}
+
+
+.full-page-loader {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0,0,0,.8);
+
+    .page-loader-message {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        flex-direction: column;
+
+        p:first-child {
+            font-size: 1.2em;
+            margin-bottom: .5em;
+        }
+
+        p:last-child {
+            font-size: 1em;
+        }
+
+    }
+
+    .lds-grid {
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-dual-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+    }
+    .lds-dual-ring:after {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin: 8px;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    @keyframes lds-dual-ring {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}
+
+.app-form {
+    display: flex;
+    justify-content: center;
+
+    & > div {
+        max-width: 600px;
+    }
+
+
+    .app-form-action {
+        width: 100%;
+        text-align: center;
+        margin-top: 4em;
+
+        button {
+            background-color: #3094DC;
+            border-color: #3094DC;
+            width: 12em;
+
+            &:hover {
+                background-color: #359aeb;
+                border-color: #359aeb;
+            }
+        }
+    }
+
+    .app-form-header {
+        display: flex;
+        align-items: center;
+        color: #3094DC;
+        margin: 2em 0 !important;
+
+        img {
+            width: 15%;
+            border-radius: 50%;
+            margin-right: 1em;
+        }
+    }
+}
+
+.app-goodbuy {
+    display: flex;
+    justify-content: center;
+
+    & > div {
+        max-width: 600px;
+    }
+
+    .goodbuy {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img {
+            width: 25%;
+            border-radius: 50%;
+            margin-bottom: 2em;
+            box-shadow: 0 0 4px 0 white;
+        }
+    }
+}
+
+.success-icon {
+
+    svg {
+        fill: #198754;
+        font-size: 3.8em;
+        transform: scale(2);
+        margin: 0.5em;
+    }
+}
+
+.root-body {
+    height: 100vh;
+    background-image: url("../images/65.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    main {
+        height: 100%;
+        background-color: #f9fafba1;
+    }
+
+    .billing-form {
+        margin-bottom: 2em;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    body {
+        height: auto !important;
+
+        .app-form-header {
+            flex-direction: column;
+
+            img {
+                margin-right: 0 !important;
+                margin-bottom: 2em;
+                width: 20% !important;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 375px) {
+
+    body {
+
+        .app-form-header {
+
+            img {
+                width: 30% !important;
+            }
+        }
+    }
+
+}

@@ -29,11 +29,12 @@ return [
     | mailers below. You are free to add additional mailers as required.
     |
     | Supported: "smtp", "sendmail", "mailgun", "ses",
-    |            "postmark", "log", "array"
+    |            "postmark", "log", "array", "failover"
     |
     */
 
     'mailers' => [
+
         'smtp' => [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
@@ -41,6 +42,50 @@ return [
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
+        'benin' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_CUSTOM_HOST'),
+            'port' => env('MAIL_CUSTOM_PORT'),
+            'encryption' => env('MAIL_CUSTOM_ENCRYPTION'),
+            'username' => env('MAIL_BENIN_USERNAME'),
+            'password' => env('MAIL_BENIN_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
+        'ivory' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_CUSTOM_HOST'),
+            'port' => env('MAIL_CUSTOM_PORT'),
+            'encryption' => env('MAIL_CUSTOM_ENCRYPTION'),
+            'username' => env('MAIL_IVORY_USERNAME'),
+            'password' => env('MAIL_IVORY_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
+        'senegal' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_CUSTOM_HOST'),
+            'port' => env('MAIL_CUSTOM_PORT'),
+            'encryption' => env('MAIL_CUSTOM_ENCRYPTION'),
+            'username' => env('MAIL_SENEGAL_USERNAME'),
+            'password' => env('MAIL_SENEGAL_PASSWORD'),
+            'timeout' => null,
+            'auth_mode' => null,
+        ],
+
+        'gabon' => [
+            'transport' => 'smtp',
+            'host' => env('MAIL_CUSTOM_HOST'),
+            'port' => env('MAIL_CUSTOM_PORT'),
+            'encryption' => env('MAIL_CUSTOM_ENCRYPTION'),
+            'username' => env('MAIL_GABON_USERNAME'),
+            'password' => env('MAIL_GABON_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -69,6 +114,14 @@ return [
 
         'array' => [
             'transport' => 'array',
+        ],
+
+        'failover' => [
+            'transport' => 'failover',
+            'mailers' => [
+                'smtp',
+                'log',
+            ],
         ],
     ],
 
